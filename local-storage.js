@@ -2,12 +2,6 @@
 /*global $, jQuery, alert*/
 
 
-//TODO: Save to it whenever data changes. 
-//TODO: Add Edit/Delete button functionality
-
-
-
-
 $('document').ready(function () {
   var bookTable = $('#bookTable'), bookForm = $('#bookForm'), e = event, arr = [], book = $('#book'), author = $('#author'), count = 0;
   
@@ -19,7 +13,6 @@ $('document').ready(function () {
   });
   function updateArray(book, author) {
     arr.push({tBook: book, tAuthor: author});
-    console.log("working");
   }
   function updateTable() {
     $('#bookTable tbody').html('<tr></tr>');
@@ -41,4 +34,16 @@ $('document').ready(function () {
     //call save settings function
   });
   
+  var edit_button = $('#edit_button').on('click', function(e) {
+    var edit = e.target;
+    var tRow = edit.closest('tr');
+    bookForm.show();
+  });
+  
+  var delete_button = $('#edit_button').on('click', function(e) {
+    var rDelete = e.target;
+    tRow = rDelete.closest('tr');
+    tr.splice(0,1);
+  });
+      
 });
